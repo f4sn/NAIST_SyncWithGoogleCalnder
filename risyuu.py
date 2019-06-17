@@ -40,7 +40,7 @@ for names in name_list:
         print(teacher)
         print(d_range)
 
-        link_over = session.get("https://syllabus.naist.jp/subjects/preview_detail/260")
+        link_over = session.get(link)
         base = BeautifulSoup(link_over.text, "html.parser")
         each_day = base.find_all("table", {"class":"tbl01 mB20"})[4].find_all("tr")
 
@@ -50,6 +50,7 @@ for names in name_list:
             date_base = tds[1].string
             theme = tds[2].string
             subject = tds[3].string
+            
             date_list = date_base.split(" ")
             date = date_list[0]
             date_month = date.split("/")[0]
