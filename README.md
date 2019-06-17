@@ -1,12 +1,12 @@
 # NAIST_SyncWithGoogleCalender
 
-NAIST�̗��C�o�^�󋵂��m�F���āAGoogle�J�����_�[�ɓ��������܂��B
+NAISTの履修登録状況を確認して、Googleカレンダーに同期させます。
 
-account.txt�Ƃ������O�Ń��[�J���Ɏ�����NAIST�A�J�E���g�̃��[�U�[�ƃp�X���[�h��ݒ肵�Ă��������B
-----------account.txt-------------
+account.txtという名前でローカルに自分のNAISTアカウントのユーザーとパスワードを設定してください。
+------
 naist-hanako
 123password456
-----------------------------------
+------
 
 
 
