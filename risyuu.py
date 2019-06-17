@@ -52,6 +52,7 @@ for names in name_list:
             date_month = date.split("/")[0]
             date_day = date.split("/")[1] 
             time = date_list[1][1:-1]
+            
             print(index)
             print(date_month)
             print(date_day)
