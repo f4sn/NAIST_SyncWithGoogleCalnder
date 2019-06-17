@@ -8,6 +8,9 @@ naist-hanako
 123password456
 ```
 
-
+```python
+pip install beautifulsoup4
+pip install requests
+```
 
 
