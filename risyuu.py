@@ -1,18 +1,20 @@
 from Gcal import GCalCSV
-
 import requests
 import datetime
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
-def convertDay(month, day):
+def convertDay(month, day, index):
     m = int(month)
     d = int(day)
     p_y = datetime.datetime.now().year
-    if ( (datetime.datetime(p_y, m, d) - datetime.datetime.now()).days > 0):
-        return month+"/"+day+"/"+str(p_y)
+    if m > 10 or m > 9 and d > 20:
+        if ( (datetime.datetime(p_y, m, d) - datetime.datetime.now()).days > 0):
+            return month+"/"+day+"/"+str(p_y)
+        else:
+            return month+"/"+day+"/"+str(p_y+1)
     else:
-        return month+"/"+day+"/"+str(p_y+1)
+        return month+"/"+day+"/"+str(p_y)
 
 def convertTime(time_index):
     time_list = [
@@ -23,7 +25,7 @@ def convertTime(time_index):
         ["16:50", "18:20"],
         ["18:30", "20:00"]
     ]
-    return time_list[int(time_index)-1]    
+    return time_list[int(time_index)-1]
 
 account_data = open("account.txt", "r")
 lines = account_data.readlines()
@@ -57,6 +59,8 @@ for names in name_list:
     if c_list:
         link = c_list[0].a.get("href")
         name = c_list[0].string
+        season = c_list[1].string
+        print(season)
 
         link_over = session.get(link)
         base = BeautifulSoup(link_over.text, "html.parser")
@@ -82,7 +86,7 @@ for names in name_list:
                 date_month = date_base.split("/")[0]
                 date_day = date_base.split("/")[1] 
 
-                date = convertDay(date_month, date_day)
+                date = convertDay(date_month, date_day, index)
                 time = convertTime(time_index)
                 csv_elem = {}
                 csv_elem["Subject"] = name
