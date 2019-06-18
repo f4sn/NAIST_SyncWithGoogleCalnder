@@ -41,6 +41,7 @@ login_info = {
 url_login = "https://subjregist.naist.jp/users/login"
 res = session.post(url_login, data=login_info)
 res.raise_for_status()
+print("success : login")
 soup = BeautifulSoup(res.text,"html.parser")
 name_list = soup.find_all("tr")
 
@@ -96,11 +97,8 @@ for names in name_list:
                 csv_elem["Description"] = theme
                 csv_elem["Location"] = place
                 csv.add(csv_elem)
+            
+            print("-----------")
+            print("added : " +name)
 
 csv.outputCSV()
-
-
-
-
-        
-        
