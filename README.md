@@ -1,16 +1,16 @@
 # NAIST_SyncWithGoogleCalender
 
 NAISTの履修登録状況を確認して、Googleカレンダーに同期させます。
-account.txtという名前でローカルに自分のNAISTアカウントのユーザーとパスワードを設定してください。
+
+/dist/account.txtを自分の曼荼羅ログイン情報に書き換えてoutputCSV.exeを起動すると.csvファイルが吐き出されます。
+
+そのCSVのデータをGoogleカレンダーのインポート設定からインポートすれば使用できます。
+
+インポート詳細 : https://support.google.com/calendar/answer/37118?hl=ja
 
 ```text:account.rb
 naist-hanako
 123password456
-```
-
-```python
-pip install beautifulsoup4
-pip install requests
 ```
 
 
