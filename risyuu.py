@@ -9,7 +9,7 @@ def convertDay(month, day, index):
     d = int(day)
     p_y = datetime.datetime.now().year
     if m > 10 or m > 9 and d > 20:
-        if ( (datetime.datetime(p_y, m, d) - datetime.datetime.now()).days > 0):
+        if ( (datetime.datetime(p_y, m, d) - datetime.datetime.now()).days > 0 and (m == 1 or m == 2)):
             return month+"/"+day+"/"+str(p_y)
         else:
             return month+"/"+day+"/"+str(p_y+1)
@@ -60,7 +60,6 @@ for names in name_list:
         link = c_list[0].a.get("href")
         name = c_list[0].string
         season = c_list[1].string
-        print(season)
 
         link_over = session.get(link)
         base = BeautifulSoup(link_over.text, "html.parser")
