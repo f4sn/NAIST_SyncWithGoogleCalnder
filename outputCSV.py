@@ -94,7 +94,8 @@ for names in name_list:
                 csv_elem["Start Time"] = time[0]
                 csv_elem["End Date"] = date
                 csv_elem["End Time"] = time[1]
-                csv_elem["Description"] = theme
+                csv_elem["Description"] = theme or ""
+                csv_elem["Description"] += "\n" + link
                 csv_elem["Location"] = place
                 csv.add(csv_elem)
             
